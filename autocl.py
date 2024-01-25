@@ -60,6 +60,7 @@ def custom_spinner():
         my_bar.progress(percent_complete + 1)
     my_bar.empty()
 
+st.title("AI Generated Cover Letter")
 st.markdown("""
                 1. Enter URL for the job description or paste the job description.
                 2. Upload your resume as PDF or paste contents of your resume.
