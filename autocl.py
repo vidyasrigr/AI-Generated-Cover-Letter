@@ -4,11 +4,15 @@ from PyPDF2 import PdfReader
 import requests
 from bs4 import BeautifulSoup
 from difflib import SequenceMatcher
+from dotenv import load_dotenv
 import base64
 import time
+import os
 
+load_dotenv()
+openai_api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=openai_api_key)
 
-client = OpenAI(api_key='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')
 additional_prompts = None 
 
 def similarity(a, b):
@@ -55,12 +59,12 @@ def extract_text_from_url(url):
 
 def custom_spinner():
     my_bar = st.empty()
-    for percent_complete in range(100000000):
+    for percent_complete in range(100):
         time.sleep(0.1)  # Simulate some processing time
         my_bar.progress(percent_complete + 1)
     my_bar.empty()
 
-st.title("AI Generated Cover Letter")
+st.title("AI-Powered Cover Letter Generator")
 st.markdown("""
                 1. Enter URL for the job description or paste the job description.
                 2. Upload your resume as PDF or paste contents of your resume.
