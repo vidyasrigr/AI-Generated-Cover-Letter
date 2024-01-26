@@ -105,7 +105,10 @@ if jd_format == "URL":
             st.warning("Failed to extract text from the provided URL. Please check the URL.")
 
 else:
-    jd_text = st.text_input("Paste job description here")
+    if jd_format == "Paste":
+        jd_text = st.text_area("Paste job description here", height=200)
+    else:
+        jd_text = "" 
 
 
 # Additional Prompts
